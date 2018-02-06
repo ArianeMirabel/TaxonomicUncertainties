@@ -2,4 +2,4 @@
 
 First chapter
 
-[Lecture](https://arianemirabel.github.io/TaxonomicUncertainties/introduction.html)
+[Lecture](https://arianemirabel.github.io/TaxonomicUncertainties/)
