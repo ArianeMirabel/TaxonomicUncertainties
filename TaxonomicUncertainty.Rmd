@@ -53,7 +53,7 @@ Library <- function(Packages) {
   invisible(sapply(Packages, InstallAndLoad))
 }
 # Ajouter les packages nécessaires ici
-# Library(c("entropart"))
+#source("GithubPages.R")
 ```
 
 <!-- Début du document ci-dessous --> 
