@@ -271,7 +271,7 @@ year = {1994}
 }
 
 @article{Phillips2003a,
-author = {Phillips, O.L. and {Vasquez Marti?nez}, R. and {Nunez Vargas}, P. and Monteagudo, A.L. and {Chuspe Zans}, M. and {Galiano Sanchez}, W. and {Pena Cruz}, A. and Timana, M. and Yli-Halla, M. and Rose, S.},
+author = {Phillips, O.L. and {Vasquez Marti­nez}, R. and {Nunez Vargas}, P. and Monteagudo, A.L. and {Chuspe Zans}, M. and {Galiano Sanchez}, W. and {Pena Cruz}, A. and Timana, M. and Yli-Halla, M. and Rose, S.},
 doi = {10.1017/S0266467403006035},
 isbn = {0266-4674},
 issn = {02664674},
@@ -372,129 +372,14 @@ volume = {9},
 year = {2013}
 }
 
-@article{Wagner2011,
-author = {Wagner, Fabien and H{\'{e}}rault, Bruno and Stahl, Cl{\'{e}}ment and Bonal, Damien and Rossi, Vivien},
-doi = {10.1016/j.agrformet.2011.04.012},
-isbn = {0168-1923},
-issn = {01681923},
-journal = {Agricultural and Forest Meteorology},
-keywords = {Amazonian rainforest,Bayesian inference,Time domain reflectometer,Tree drought stress,Water balance model},
-number = {9},
-pages = {1202--1213},
-publisher = {Elsevier B.V.},
-title = {{Modeling water availability for trees in tropical forests}},
-url = {http://dx.doi.org/10.1016/j.agrformet.2011.04.012},
-volume = {151},
-year = {2011}
-}
 
-@techreport{IUSSWorkingGroupWRB2015,
-address = {ROME},
-author = {{IUSS Working Group WRB}},
-booktitle = {World Soil Resource Reports No. 106},
-doi = {10.1017/S0014479706394902},
-institution = {FAO},
-isbn = {9789251083697},
-issn = {00144797},
-pages = {1--191},
-pmid = {19662002},
-title = {{World Reference Base for Soil Resources 2014, update 2015 Internatioanl soil classification system for naming soils and creating legends for soil maps}},
-year = {2015}
-}
 
-@book{McCarthy2007,
-author = {McCarthy, M. A.},
-pages = {296},
-publisher = {Cambridge University Press},
-title = {{Bayesian Methods for Ecology}},
-year = {2007}
-}
 
-@article{Baltanas2009,
-author = {Baltanas, Angel},
-journal = {Oikos},
-number = {3},
-pages = {484--492},
-title = {{On the Use of Some Methods for the Estimation of Species Richness On the use of some methods for the estimation of species richness}},
-volume = {65},
-year = {2009}
-}
 
-@article{Baraloto2012a,
-author = {Baraloto, Christopher and H{\'{e}}rault, Bruno and Paine, C. E. Timothy and Massot, H{\'{e}}l{\`{e}}ne and Blanc, Lilian and Bonal, Damien and Molino, Jean-Fran{\c{c}}ois Fran{\c{c}}ois and Nicolini, Eric a. and Sabatier, Daniel},
-doi = {10.1111/j.1365-2664.2012.02164.x},
-file = {:C$\backslash$:/Users/ariane.mirabel/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Baraloto et al. - 2012 - Contrasting taxonomic and functional responses of a tropical tree community to selective logging.pdf:pdf},
-isbn = {1365-2664},
-issn = {00218901},
-journal = {Journal of Applied Ecology},
-keywords = {Canopy gap dynamics,Disturbance,French Guiana,Functional diversity,Functional evenness,Functional traits,Light partitioning,Species richness,Tropical rain forest},
-mendeley-groups = {These/Exploitation{\&}Diversity},
-number = {4},
-pages = {861--870},
-title = {{Contrasting taxonomic and functional responses of a tropical tree community to selective logging}},
-url = {http://doi.wiley.com/10.1111/j.1365-2664.2012.02164.x},
-volume = {49},
-year = {2012}
-}
 
-@article{Berry2008a,
-author = {Berry, Nicholas J. and Phillips, Oliver L. and Ong, Robert C. and Hamer, Keith C.},
-doi = {10.1007/s10980-008-9248-1},
-file = {:C$\backslash$:/Users/ariane.mirabel/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Berry et al. - 2008 - Impacts of selective logging on tree diversity across a rainforest landscape The importance of spatial scale.pdf:pdf},
-isbn = {0921-2973},
-issn = {09212973},
-journal = {Landscape Ecology},
-keywords = {Alpha-diversity,Beta-diversity,Borneo,Danum Valley,Disturbance,Gap dynamics,Tropical rain forest,Vegetation structure},
-mendeley-groups = {These/Exploitation{\&}Diversity},
-number = {8},
-pages = {915--929},
-title = {{Impacts of selective logging on tree diversity across a rainforest landscape: The importance of spatial scale}},
-volume = {23},
-year = {2008}
-}
 
-@article{Cannon1998,
-author = {Cannon, C. H.},
-doi = {10.1126/science.281.5381.1366},
-file = {:C$\backslash$:/Users/ariane.mirabel/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Cannon - 1998 - Tree Species Diversity in Commercially Logged Bornean Rainforest.pdf:pdf},
-isbn = {0036-8075},
-issn = {1095-9203},
-journal = {Science},
-mendeley-groups = {These,These/Exploitation{\&}Diversity},
-number = {5381},
-pages = {1366--1368},
-pmid = {9721105},
-title = {{Tree Species Diversity in Commercially Logged Bornean Rainforest}},
-volume = {281},
-year = {1998}
-}
 
-@article{Plumptre1996,
-author = {Plumptre, A.J.},
-file = {:C$\backslash$:/Users/ariane.mirabel/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Plumptre - 1996 - Changes following 60 years of selective timber harvesting in the Budongo Forests Reserve, Unganda.pdf:pdf},
-journal = {Forest Ecology and Management},
-mendeley-groups = {These/Exploitation{\&}Diversity},
-number = {96},
-pages = {101--113},
-title = {{Changes following 60 years of selective timber harvesting in the Budongo Forests Reserve, Unganda}},
-volume = {89},
-year = {1996}
-}
 
-@article{Hawes2012,
-author = {Hawes, Joseph E. and Peres, Carlos A. and Riley, Louise B. and Hess, Laura L.},
-doi = {10.1016/j.foreco.2012.06.023},
-isbn = {0378-1127},
-issn = {03781127},
-journal = {Forest Ecology and Management},
-keywords = {Aboveground biomass,Brazil,Carbon stocks,Floodplain forest,V??rzea,Wood specific gravity},
-pages = {163--176},
-publisher = {Elsevier B.V.},
-title = {{Landscape-scale variation in structure and biomass of Amazonian seasonally flooded and unflooded forests}},
-url = {http://dx.doi.org/10.1016/j.foreco.2012.06.023},
-volume = {281},
-year = {2012}
-}
 
 
 
