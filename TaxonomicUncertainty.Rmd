@@ -43,7 +43,7 @@ output:
 <!-- Options de knitr et de R (librairies, ...) --> 
 
 ```{r Options, echo=FALSE, message=FALSE}
-knitr::opts_chunk$set(cache=TRUE, warning=FALSE, tidy=TRUE, tidy.opts=list(blank=FALSE, width.cutoff=40))
+knitr::opts_chunk$set(cache=T, warning=FALSE, tidy=TRUE, tidy.opts=list(blank=FALSE, width.cutoff=40))
 # Installation des packages si nécessaire et chargement
 Library <- function(Packages) {
   InstallAndLoad <- function(Package) {
@@ -145,7 +145,7 @@ To validate the convergence of the model we first simulated 100 values and reali
 
 # Results
 
-## Impacts of indetermination ratios and ideal settings
+## Impacts of undetermination ratios and ideal settings
 
 When considering both general taxa-correspondence table and reference field inventory diversity estimator showed a positively bias that increased with the indetermination ratio \ref{Fig1a}.
 The bias of the estimator was besides increasing with the order of diversity q.

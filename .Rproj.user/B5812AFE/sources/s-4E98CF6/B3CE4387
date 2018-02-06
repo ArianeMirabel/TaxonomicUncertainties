@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "183756684",
+    "hash" : "0",
     "id" : "B3CE4387",
-    "lastKnownWriteTime" : 1517952471,
-    "last_content_update" : 1517952471849,
+    "lastKnownWriteTime" : 1517952891,
+    "last_content_update" : 1517952891603,
     "path" : "P:/Private/Taff/These/Redaction/1_TaxonomicUncertainties/TaxonomicUncertainty.Rmd",
     "project_path" : "TaxonomicUncertainty.Rmd",
     "properties" : {
-        "cursorPosition" : "172,25",
-        "scrollLine" : "158"
+        "cursorPosition" : "55,1",
+        "scrollLine" : "40"
     },
     "relative_order" : 2,
     "source_on_save" : false,
