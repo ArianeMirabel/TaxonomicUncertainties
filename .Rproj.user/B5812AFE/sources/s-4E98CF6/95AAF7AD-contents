@@ -1,12 +1,12 @@
 ---
-title: "Post-Disturbance Diversity Trajectories in a Neotropical Forest"
+title: "Post-Disturbance Tree Community Trajectories in a Neotropical Forest"
 author:
   - name: Ariane MIRABEL
     authsuperscript: 1*
   - name: Eric Marcon
     authsuperscript: 1
   - name: Bruno Hérault
-    authsuperscript: 2
+    authsuperscript: 2 3
 affiliation:
   - affsuperscript: 1
     dptuniv: UMR EcoFoG, AgroParistech, CNRS, Cirad, INRA, Université des Antilles, Université de Guyane.
@@ -15,11 +15,15 @@ affiliation:
       97310 Kourou,
       France.
   - affsuperscript: 2
-    dptuniv: Department of Ecology, University of Edimburgh
+    dptuniv: Cirad, Univ montpellier, UR Forests & Societies.
     address: >
-      Street address,
-      Zip code,
-      Country.
+      Montpellier,
+      France.
+  - affsuperscript: 3
+    dptuniv: INPHB, Institut National Polytechnique Félix Houphouet-Boigny
+    address: >
+      Yamoussoukro,
+      Ivory Coast.
 corrauthor:
     email: ariane.mirabel@ecofog.gf
     url: http://www.ecofog.gf/spip.php?article47
@@ -64,9 +68,8 @@ source("Scripts/DrawingTools.R")
 ```
 
 # Introduction
-The large areas covered with tropical forests worldwide hold crucial commercial, social and cultural value. 
-They provide wood and multiple non-timber forest products, shelter a diversified fauna, regulate local climate and support nutrients, water and carbon cycles and ensure cultural and human well-being. 
-The demand for forests products and the shrink of unmanaged areas increased the human pressure on forests and currently threaten the maintenance of their structure, composition and function. 
+The large areas covered with tropical forests worldwide hold crucial economic, social and cultural value. 
+They provide not only wood but also multiple non-timber forest products, shelter a diversified fauna, regulate local climate and support carbon, water and many nutrient cycles and ensure cultural and human well-being. The increasing demand for forests products and the resulting shrink of unmanaged areas increase the pressure on the remaining intact forest landscapes as well as threaten the maintenance of their structure, composition and functionning in the long term. 
 The increasing demand for forests products, land-use changes and other human disturbances along with substantial climatic changes make a crucial issue of understanding the response of forests dynamics to such disturbance regimes [@Gibson2011a; @Morales-Hidalgo2015]. 
 This has been addressed from the point of view of biomass production and carbon storage which resilience proved subjected to identified cyclic dynamics and therefore gives hope for the maintenance of forest ecosystem and their services. 
 The response of trees biological diversity however has been sparsely studied, although this diversity is a major determinant of forests productivity, stability and functioning as it ensures interspecific complementarity, enhances the use of resources and the store of nutrients, and mitigates the prejudices of diseases and herbivory [@Tilman2014]. 
