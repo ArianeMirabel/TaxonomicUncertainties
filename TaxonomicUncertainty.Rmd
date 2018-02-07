@@ -43,7 +43,7 @@ output:
 <!-- Options de knitr et de R (librairies, ...) --> 
 
 ```{r Options, echo=FALSE, message=FALSE}
-knitr::opts_chunk$set(cache=T, warning=FALSE, tidy=TRUE, tidy.opts=list(blank=FALSE, width.cutoff=40))
+knitr::opts_chunk$set(cache=F, warning=FALSE, tidy=TRUE, tidy.opts=list(blank=FALSE, width.cutoff=40))
 # Installation des packages si nécessaire et chargement
 Library <- function(Packages) {
   InstallAndLoad <- function(Package) {
@@ -70,7 +70,7 @@ In that respect a large panel of diversity indices have been developed, constitu
 Here we used the family of q-generalized or Tsallis entropy, converted into equivalent number of species [@Hill1973;@Keylock2005;@Jost2006].
 The diversities of this family derive from a unique formula, modulated by an order q that is the power to which is raised species frequency:
 
- $ ^qD = \bigg(\displaystyle\sum_{i=1}^{N} p_i^q\bigg)^\frac{1}{1-q} $
+ $$ ^qD = \bigg(\displaystyle\sum_{i=1}^{N} p_i^q\bigg)^\frac{1}{1-q} $$
  
 In this formula *q* is the order of the diversity and $p_i$ the relative abundance of species *i* in a community of *N* species.
 The order *q* determines the weight of species abundance in the metric: the higher the order, the higher the emphasis on common vs. rare species. 
@@ -121,7 +121,7 @@ This process generates fully determined inventories when applied to all the init
 
 The probabilities $[α_v]$ were determined with a Bayesian framework that could include two different dataset.
 First we could account for prior information from experts’ knowledge in the form of a taxa-association table listing all botanical species likely corresponding to each vernacular name.
-The information of this table was summed up by a vector $[*λ_v*]$ where $λ_i={}^1/m_v$ for the mv species which links to v was established and $λ_i={}^Ɛ\big/_{N-n_{table}}$ for others. The parameter *Ɛ* stands for a background noise, it was set to 0.01.
+The information of this table was summed up by a vector $[λ_v]$ where $λ_i={}^1/m_v$ for the mv species which links to v was established and $λ_i={}^Ɛ\big/_{N-n_{table}}$ for others. The parameter *Ɛ* stands for a background noise, it was set to 0.01.
 Second we could account for reference field inventory that give the observed association frequency between botanical and vernacular names.
 This inventory gives the vector $[φ_v]$, where $φ_i$ is the frequency to which a tree with the vernacular name *v* belonged to the botanical name *i*.
 We also added here a background noise, $λ_i={}^Ɛ\big/_{N-n_{field}}$ for the trees where no association was observed with nfield the number of associated botanical names and *Ɛ* a background noise set to 0.01.
