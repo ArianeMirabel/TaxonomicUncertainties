@@ -189,7 +189,23 @@ The biases of the estimators decreased with the order of diversity.
 The richness of reference is not faithfully retrieved before recovering the whole inventory \ref{Fig3}a but the 95% confidence interval of the estimator does not exceed 7% of the initial diversity.
 The Shannon and Simpson estimators showed lower biases, the bias of Shannon estimator falls to 15% for 2 000 reference trees \ref{Fig3}b and the bias of Simpson estimator falls to 6% \ref{Fig3}c.
  
-```{r Fig3, out.width = '60%', echo=FALSE,fig.cap="Degradation along a sampling effort gradient, of the Richness, Shannon and Simpson diversities estimated for the reference inventory in vernacular names. The propagation method to estimate the diversities is only based on the reference field inventory. Above plots correspond to the estimated diversity in equivalent number of species and below plots correspond to the relative bias of the estimation compared to the value of the reference field inventory. For both dashed lines represent the value of the reference field inventory and crosses and red lines respectively represent the mean, 0.05 and 0.95 quantiles estimated after 1000 iteration."}
+```{r Fig3, out.width = '100%',fig.asp=1.3/3, echo=FALSE,fig.cap="Degradation along a sampling effort gradient, of the Richness, Shannon and Simpson diversities estimated for the reference inventory in vernacular names. The propagation method to estimate the diversities is only based on the reference field inventory. Above plots correspond to the estimated diversity in equivalent number of species and below plots correspond to the relative bias of the estimation compared to the value of the reference field inventory. For both dashed lines represent the value of the reference field inventory and crosses and red lines respectively represent the mean, 0.05 and 0.95 quantiles estimated after 1000 iteration."}
+load("DB/SampEffGrad")
+
+par(mfcol=c(2,3),oma=c(1,1,1,0),no.readonly=TRUE)
+
+invisible(lapply(SEgradient,function(segradient){
+  Draw_SamplingEffort(segradient)
+}))
+  
+mtext("(a) Richness",at=0.12,line=-3,outer=TRUE)
+mtext("(b) Shannon",at=0.45,line=-3,outer=TRUE)
+mtext("(c) Simpson",at=0.8,line=-3,outer=TRUE)
+mtext("Number of sampled trees",1,adj=1,line=-0.5,cex=0.8,outer=TRUE)
+mtext("Estimation bias (%)",side=2,at=0.7,outer=T,line=-0.75)
+mtext("Equivalent Diversity",side=2,at=0.3,outer=T,line=-0.75)
+
+  
 ```
 
 # Discussion
@@ -238,7 +254,7 @@ The method is based on reference field inventory and integrates the specificity 
 It is workable in all contexts and we propose that it be largely applied to get insights into the issue of vernacular names handling.
 
 
-
+----------------
 
 
 `r if (knitr:::is_html_output()) '# References {-}'`
