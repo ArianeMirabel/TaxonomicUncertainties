@@ -43,7 +43,7 @@ output:
 <!-- Options de knitr et de R (librairies, ...) --> 
 
 ```{r Options, echo=FALSE, message=FALSE}
-knitr::opts_chunk$set(cache=F, warning=FALSE, tidy=TRUE, tidy.opts=list(blank=FALSE, width.cutoff=40))
+knitr::opts_chunk$set(cache=T, warning=FALSE, tidy=TRUE, tidy.opts=list(blank=FALSE, width.cutoff=40))
 # Installation des packages si nécessaire et chargement
 Library <- function(Packages) {
   InstallAndLoad <- function(Package) {
@@ -147,14 +147,14 @@ To validate the convergence of the model we first simulated 100 values and reali
 
 ## Impacts of undetermination ratios and ideal settings
 
-When considering both general taxa-correspondence table and reference field inventory diversity estimator showed a positively bias that increased with the indetermination ratio \ref{Fig1a}.
+When considering both general taxa-correspondence table and reference field inventory diversity estimator showed a positively bias that increased with the indetermination ratio \@ref(fig:Fig1) *(a)*.
 The bias of the estimator was besides increasing with the order of diversity q.
 For the order *q* = 0 the estimation did not significantly differ from the initial value of the real inventory while for the order *q* = 1 the overestimation reached 45% of the initial diversity and for the order *q* = 2 the overestimation reached 57%.
-When only the general taxa-correspondence table is considered \ref{Fig1b} the richness was highly underestimated, it reached 50% when the whole inventory was in vernacular names, while the Shannon and Simpson indices were both significantly overestimated, their respective bias reaching 67% and 125%.
-When only the reference field inventory is considered \ref{Fig1c} there were still estimation biases but they did not exceed 15% for any order of diversity.
+When only the general taxa-correspondence table is considered \@ref(fig:Fig1) *(b)* the richness was highly underestimated, it reached 50% when the whole inventory was in vernacular names, while the Shannon and Simpson indices were both significantly overestimated, their respective bias reaching 67% and 125%.
+When only the reference field inventory is considered \@ref(fig:Fig1) *(c)* there were still estimation biases but they did not exceed 15% for any order of diversity.
 
 We performed a bootstrap of the 100 simulations that showed a stabilization of variances after 60 simulations.
-We therefore set the number of simulations at 60 in the final script \ref{FigS1}.
+We therefore set the number of simulations at 60 in the final script \@ref(fig:FigS1).
 
 ```{r Fig1, out.width = '100%', echo=FALSE,fig.cap="Indices degradation along a taxonomic uncertainty gradient. 95% envelopes of the Richness, Shannon and Simpson indices calculated through our propagation method along an uncertainty gradient from 0 to 100% of undetermined species. In (a) Only expert prior is considered to compute the association frequencies, in (b) both expert and observation prior are equally accounted for in the propagation method and in (c) only the observation prior is considered."}
 
@@ -184,10 +184,10 @@ mtext("Simpson",side=2,at=0.1,outer=T,line=0.8)
 ## Calibrating the sampling effort
 
 We simulated a gradient of sampling effort for the reference field inventory, in terms of number of trees required to infer a the vector of association frequencies $[φ_v]$, to identify the minimum effort for reliable diversity estimators.
-We tested a range of sampling effort from 500 to 22 000 trees randomly selected from the whole inventory \ref{Fig3}.
+We tested a range of sampling effort from 500 to 22 000 trees randomly selected from the whole inventory \@ref(fig:Fig3).
 The biases of the estimators decreased with the order of diversity.
-The richness of reference is not faithfully retrieved before recovering the whole inventory \ref{Fig3}a but the 95% confidence interval of the estimator does not exceed 7% of the initial diversity.
-The Shannon and Simpson estimators showed lower biases, the bias of Shannon estimator falls to 15% for 2 000 reference trees \ref{Fig3}b and the bias of Simpson estimator falls to 6% \ref{Fig3}c.
+The richness of reference is not faithfully retrieved before recovering the whole inventory \@ref(fig:Fig3) *(a)* but the 95% confidence interval of the estimator does not exceed 7% of the initial diversity.
+The Shannon and Simpson estimators showed lower biases, the bias of Shannon estimator falls to 15% for 2 000 reference trees \@ref(fig:Fig3) *(b)* and the bias of Simpson estimator falls to 6% \@ref(fig:Fig3) *(c)*.
  
 ```{r Fig3, out.width = '100%',fig.asp=1.3/3, echo=FALSE,fig.cap="Degradation along a sampling effort gradient, of the Richness, Shannon and Simpson diversities estimated for the reference inventory in vernacular names. The propagation method to estimate the diversities is only based on the reference field inventory. Above plots correspond to the estimated diversity in equivalent number of species and below plots correspond to the relative bias of the estimation compared to the value of the reference field inventory. For both dashed lines represent the value of the reference field inventory and crosses and red lines respectively represent the mean, 0.05 and 0.95 quantiles estimated after 1000 iteration."}
 load("DB/SampEffGrad")
@@ -221,7 +221,7 @@ We did not obtain an unbiased estimator of species Richness but demonstrated a l
 
 We set up a framework providing reliable and accurate diversity estimations in handling the taxonomic uncertainty of vernacular names due to their multiple correspondences to botanical species. In the line of @Guitet2014b our method propagates the taxonomic uncertainty to diversity estimators through a Bayesian framework that was either based on general taxa-correspondence tables or reference field inventories.
 We determined the best balance between both dataset in applying our framework along a gradient of indetermination ratio $\big(\cfrac{\text{number of vernacular name}}{\text{number of trees}}\big)$.
-Whenever its weight the account of the general taxa-association table underestimated the Richness and overestimated the Shannon and Simpson diversities_ \ref{Fig1}.
+Whenever its weight the account of the general taxa-association table underestimated the Richness and overestimated the Shannon and Simpson diversities \@ref(fig:Fig1).
 The use of general taxa-association table increases the equitability of the community in inflating the abundance of rare species at the expense of abundant ones.
 The association probabilities computed from this dataset are independent of species abundance so the vernacular name of a rare species will indifferently be associated to are or abundant species.
 The use of a reference field inventory to the contrary gives vector of association probability dependent of species abundance and retrieves the real abundance distribution so the diversity estimator however is much less biased.
