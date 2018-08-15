@@ -1,5 +1,5 @@
 ---
-title: "Inescapable Taxonomists: Workable Biodiversity Management Must Base on a Minimum Field Work"
+title: "Inescapable Taxonomists: Workable Biodiversity Management Based on a Minimum Field Work"
 author:
   - name: Ariane Mirabel
     authsuperscript: 1*
@@ -19,13 +19,20 @@ affiliation:
     address: Yamoussoukro, Ivory Coast
 corrauthor:
     email: ariane.mirabel@ecofog.gf
-    url: http://www.ecofog.gf/spip.php?article47
+    url: https://github.com/ArianeMirabel
 abstract: >
-  Résumé de l'article.
-keywords: [mot-clés, séparés par des virgules]
-journalinfo: Hal xxxx
-archive: DOI xxxx
-date: "`r format(Sys.time(), '%d %B %Y')`"
+  Assess the fate of Neotropical forests requires to accurately measures are the base of reliable foret monitoring, crucial to assess the fate of neotropical forests in the current changing climate.
+  The costs of botanical inventories and the taxonomic complexity of Neotropical forests make predominant forest inventories in vernacular names, although these hold high botanical uncertainty. 
+  Several methods proposed to compensate botanical uncertainties but none allowed reliable neither functional nor fine-scale diversity approaches.
+  Here we offer a polyvalent diversity estimator propagating botanical uncertainties and workable in numerous specific cases. From a large neotropical inventory,we calibrated the stimator and through simulations we determined an ideal inventory protocol optimizing the costs and the accuracy of forest inventories.  
+  Our study first highlighted the unavoidable use to real inventories, compared to general vernacular/botanical tables, and the inescapable recourse to taxonomists to ensure robust diversity survey.
+  Then our simulations allowed estimated the minimum sampling size (XX trees) and percentage of species accurately identified (80% of species known) for inventories to allow diversity estimations with a 10% error.
+  
+  The diversity estimator effectively assessed diversity for a variety of pre-logging and experimental forest monitoring, acknowledging the rescourse to taxonomists, and enabled to design optimized inventory protocols.
+  
+keywords: [Biodiversity Measurement, Tree Community, Neotropical Forests, Botanical Uncertainty Propagation, Bayesian Estimator]
+journalinfo: 
+archive: 
 preamble: >
   \usepackage{textcomp}
   \DeclareUnicodeCharacter{B0}{\textdegree}
@@ -57,81 +64,101 @@ Library <- function(Packages) {
 }
 # Ajouter les packages nécessaires ici
 #source("Scripts/GithubPages.R")
-source("Scripts/DrawingTools.R")
+source("P:/Private/Taff/These/Redaction/1_TaxonomicUncertainties/Scripts/DrawingTools.R")
 ```
 
 
 # Introduction
 
-The variety of tree species, their assemblages in space and their dynamics in time are determinant for forests ecological functions and productivity [@Magurran1988;@Cardinale2012].
-It is crucial to maintain this diversity, especially in tropical forests where trees diversity is as threatened as it is valuable and unexplored [@Koh2010].
-Maintain the diversity of tropical ecosystems requires setting protection areas and implementing sustainable forest management correctly calibrated through the assessment of spatial and temporal biodiversity patterns and their determinants [@Margules2000;@Purvis2000;@Gibson2011a;@FAO2009;@Sist2015].
+The variety of tree species, their assemblages in space and their dynamics in time are determinant of forests productivity and functioning [@Magurran1988;@Cardinale2012].
+Preserve tree diversity is crucial to maintain forests functioning and services, specifically in hyper-diverse tropical forests where the biodiversity is as threatened as it is valuable and unexplored [@Koh2010;@Barlow2018].
+Handling the conservation and management of tree diversity requires setting sensitive protection areas and sustainable forest management calibrated according to their spatial and temporal patterns and determinants [@Margules2000;@Purvis2000;@Gibson2011a;@FAO2009;@Sist2015].
 
-In that respect a large panel of diversity indices have been developed, constituting a refine framework catching all aspects of communities’ diversity [@Whittaker1972;@Purvis2000]. 
-Here we used the family of q-generalized or Tsallis entropy, converted into equivalent number of species [@Hill1973;@Keylock2005;@Jost2006].
-The diversities of this family derive from a unique formula, modulated by an order q that is the power to which is raised species frequency:
+Correctly measure, map and manage forests biodiversity require accurate and large forest monitoring.
+The precision of forest inventories, though, is often limited by their significant cost in terms of time, money, and logistic [@Feeley2011].
+Sampling methods were optimized to minimize these costs and maximize inventory accuracy.
+Some approaches would restrict inventories to some DBH or height classes, to specific taxa, or would opt for inventories at family or genus level.
+These methods efficiently translated biodiversity patterns at regional scales and along wide ecological gradients [@Steege2000;@Higgins2004;@Rejou-Mechain2011;@Pos2014].
+However, these methods were either limited to small areas (under 1ha), sometimes remained biased or holding significant uncertainty, and usually proved limited to detect subtle diversity aspects and to desentangle richness from equitability parameters [@Phillips2003a;@Valencia2013;@Guitet2014b ;@Vellend2008;@Prance1994].
+Another approach proposed to use inventories in vernacular names instead of botanical species.
+Vernacular names indeed are easier to attribute, more common and usually do not require vouchers collection or posterior botanical identification. 
+Similarly though, vernacular names entail significant botanical uncertainties as the association with botanical species is usually highly variable in space and time [@Oldeman1968].
+Besides, rough vernacular inventories would not suit the needs of functional and phylogenetic approaches that require identification at the botanical species to comply with phylogenetic and functional database.
+However the approach through vernacular names deserves further attention.
+First, it gives the opportunity to analyze pre-logging inventories conducted in large areas by logging companies.
+Second, as exhaustive inventories, they allow some post-process based on vernacular/botanical names association and allow the building of reliable diversity estimators [@TerSteege2006;@Feldpausch2006;@Rejou-Mechain2008;@Rejou-Mechain2011].
+Following this idea @Guitet2014b proposed a framework propagating vernacular names taxonomic uncertainties in diversity measures.
+The propagation framework was based on Monte-Carlo processes estimating forest diversity from the vernacular-botanical name association.
+These association combined prior information from both general taxa-abundance correspondence table [@De2009] and reference field inventories.
+The framework successfully rendered the ranking of plots diversity, but remained restricted to large environmental gradient and for highly different communities [@Guitet2014b;@Guitet2013].
+In this study we offer to refine this framework and adapt it to diversity estimation at smaller spatial scales.
+The following diversity estimator is based on the specific case of the studied community and the inventory protocol.
+The diversity estimator besides suits all inventories whatever the ratio of botanical determination, *i.e.* ratio of vernacular compared to botanical names.
+It besides suits experimental specific as well as pre-logging inventories where only the commercial or most recognizable species are identified at species level.
 
-$$^qD = \sum_{i=1}^{N}{\left( p_i^q \right)^{\frac{1}{1-q}} }$$
- 
-In this formula $q$ is the order of the diversity and $p_i$ the relative abundance of species $i$ in a community of $N$ species.
-The order $q$ determines the weight of species abundance in the metric: the higher the order, the higher the emphasis on common vs. rare species. 
-A range of order $q$ browses different balance between richness and evenness: for $q = 0$ the formula retrieves species richness, for $q = 1$ this is Shannon diversity that equally accounts for the richness and evenness components and for $q = 2$ this is the Simpson diversity as can be understood as the diversity of common species. 
+Such diversity estimator allows maximizing the accuracy of diversity measures while minimizing the sampling effort, *i.e.* the size of inventoried communities and the number of accurately identified species.
+In this perspective we thought to calibrate an ideal inventory protocol optimized in terms of sampling effort and determination degree.
+From a real inventory, with complete vernacular and botanical identifications, we simulated ranges of sampling efforts and identification degrees along which we examined the bias and variability of the diversity estimator.
 
-These tools though are based on forest inventories that require significant time, costs, and logistic [@Feeley2011].
-To respond these difficulties it has been proposed to reduce the inventory effort in focusing on some DBH, height classes or some particular taxa, or by leading inventories at family or genus level.
-These methods efficiently reflected biodiversity patterns at regional scales and along wide ecological gradients [@Steege2000;@Higgins2004;@Rejou-Mechain2011;@Pos2014] but they did not clearly disentangled the richness and evenness components of diversity.
-They would miss the needs of studies at smaller time and spatial scale which involve faint variation, particularly in the Neotropics where the diversity of tree species is particularly large and complex [@Guitet2014b ;@Vellend2008;@Prance1994].
-These restricting methods besides miss the needs of functional and phylogenetic approaches that are workable only with botanical names, to comply with phylogenetic trees and global trait database.
-Other methods proposed were rather interested in optimizing the sampling method of inventoried areas [@Phillips2003a;@Valencia2013] but even then only small areas (under 1ha) were reasonably practicable because of the cost of high taxonomic resolution and the estimation of diversity remained uncertain, biased and the effects on richness and equitability still entangled.
-
-It was also proposed to use inventories in vernacular names because they easier to attribute, more widely known and do not require vouchers collection or posterior botanical identification. 
-Inventories in vernacular names besides already encompass the numerous forest inventories that logging companies conduct to quantify the available resources [@TerSteege2006;@Feldpausch2006;@Rejou-Mechain2008;@Rejou-Mechain2011].
-The use of vernacular names successfully highlighted biodiversity patterns at regional scale and along large ecological gradients [@Guitet2014b] but a clear and precise framework still need be developed. Vernacular names bear significant taxonomic uncertainty because they may correspond to several taxon, which besides depends of the field team [@Oldeman1968].
-This taxonomic uncertainty should be correctly accounted for in the measure of diversity, as done by @Guitet2014b.
-They developed a framework based on Monte-Carlo process using the association between botanical and vernacular names, estimated through both general taxa-abundance table [@De2009] and reference field botanical inventories.
-Their framework successfully rendered the ranking of plots diversity, their results came from the study of a large environmental gradient and highly different communities [@Guitet2014b;@Guitet2013].
-We took up this framework to refine it and adapt it to the study of smaller time and spatial scales.
-The new framework proposed besides accounts for the specificities of the field teams and the studied community.
-It can also be applied whenever ratio of botanical determination in the initial inventory, be it partly or fully in vernacular names.
-In some cases indeed only the commercial or most recognizable species are directly identified at species level.
-This handling of several determination ratio could also give interesting application like promoting basic botanical formation for field workers to ensure a minimum determination ratio: this could be a small investment that highly increases the value of logging inventories for ecological surveys. 
-Specifically we *(i)* revised the propagation Bayesian framework to account for both general taxa-association tables and reference field inventories. We extended the framework to analyze partly identified forest inventories and explored the impact of the different ratio of botanical determination on the performance of diversity estimators.
-*(ii)* We calibrated the framework using six 6.25ha plots from a tropical rainforest stand in French Guyana and determined the ideal balance between general taxa-association table and reference field inventories.
-We then determined the minimal sampling effort to be invested in the reference field inventories to have a correct estimation of diversity. 
+In this study we *(i)* redesigned a diversity estimator based on a Bayesian framework accounting for both general taxa-association tables and specific field inventories, and *(ii)* applied the estimator to a real Neotropical forest inventory to determine the sampling effort and determination degree of an ideal inventory protocol.
 
 # Methods
 
-## Study community and floristic flora
+## Study community
 
-We based our analyses on a reference field inventory of a community of six 6.25ha rainforest plots in French Guyana.
-The inventory comes from the Paracou Research Station in French Guiana (5°18'N and 52°53'W) which is located in a lowland tropical rain forest with a dominance of Fabaceae, Chrysobalanaceae, Lecythidaceae and Sapotaceae.
-Mean annual precipitation averages $2980 mm.y^-1$ (30-y period) with a 3-months dry season ($< 100 mm.months-1$) from mid-August to mid-November and a one-month dry season in March [@Wagner2011].
-Elevation ranges between 5 and 50 m and mean annual temperature is 26°C.
-Soils correspond to thin acrisols over a layer of transformed saprolite with low permeability generating lateral drainage during heavy rains [@IUSSWorkingGroupWRB2015]. 
-We used the inventory of year 2015 of the six permanent plots of undisturbed forest (6.25ha each) settled within a 400-ha area.
-Trees with a DBH above 10cm are located and identified first with a vernacular name assigned by the field team before the following identification campaign when a botanist assigns a botanical species.
-The community represents 22904 trees belonging to 375 species and 63 families, identified by 290 different vernacular names.
-The initial taxonomic uncertainty that is the proportion of trees not fully identified concerned 3% of the community.
+We based our analyses on the inventory of a Neotropical rainforest, from the Paracou Research Station in French Guiana (5°18'N and 52°53'W).
+The experimental site stands in a lowland tropical rainforest with a flora dominated by *Fabaceae*, *Chrysobalanaceae*, *Lecythidaceae* and *Sapotaceae* families.
+Mean mean annual temperature is 26°C. and the mean annual precipitations average $2980 mm.y^-1$ (30-y period) with a 3-months dry season ($< 100 mm.months-1$) from mid-August to mid-November and a one-month dry season in March [@Wagner2011].
+Elevation ranges between 5 and 50 m and soils correspond to thin acrisols over a layer of transformed saprolite with low permeability, generating lateral drainage during heavy rains [@IUSSWorkingGroupWRB2015]. 
+We used the 2015 inventory of six permanent plots of undisturbed forest (6.25ha each, 37.5ha inventoried in total).
+During inventories trees are identified first with a vernacular name assigned by the forest worker team, and afterward with a scientific name assigned by botanists during regular botanical campaigns. 
+The community inventoried ancompasses 22 904 trees belonging to 375 species and 63 families, identified by 290 different vernacular names.
+The initial taxonomic uncertainty was 3% of the community, *i.e.* the proportion of trees not identified with a botanical name.
 
-## Propagation Framework
+## Diversity measures
 
-Our framework estimates the diversity of an inventory with a Monte-Carlo scheme that generates fully determined communities, by means of the association between vernacular names and the $N$ botanical names of the inventory.
-This association is modelled by a multinomial distribution on the $s_N$ botanical species.
-For any vernacular name of the inventory the distribution of associated botanical names followed a multinomial distribution $M([s_1, s_2, …, s_N] ,[\alpha_1, \alpha_2,…, \alpha_N])$, where $[s_1, s_2, …, s_N]$ were the species recorded in the inventory and $[\alpha_1, \alpha_2,…, \alpha_N]$ the corresponding probability of association.
-This process generates fully determined inventories when applied to all the initial vernacular names and repeated 1000 times it returns the estimation of the diversity and its uncertainty. 
+Among the large panel of diversity indices we examined here the family of q-generalized (Tsallis) entropy, widely adopted to assess all aspects of taxonomic, functional and phylogenetic diversities.
+The Tsallis diversity indices derive from a general formula, modulated by an order q emphasizing species frequency \@ref(eq:TsallisEntropy). 
 
-The probabilities $[\alpha_v]$ were determined with a Bayesian framework that could include two different dataset.
-First we could account for prior information from experts’ knowledge in the form of a taxa-association table listing all botanical species likely corresponding to each vernacular name.
-The information of this table was summed up by a vector $[\lambda_v]$ where $\lambda_i={}^1/m_v$ for the mv species which links to v was established and $\lambda_i={}^\epsilon\big/_{N-n_{table}}$ for others. The parameter $\epsilon$ stands for a background noise, it was set to 0.01.
-Second we could account for reference field inventory that give the observed association frequency between botanical and vernacular names.
-This inventory gives the vector $[\phi_v]$, where $\phi_i$ is the frequency to which a tree with the vernacular name $v$ belonged to the botanical name $i$.
-We also added here a background noise, $\lambda_i={}^\epsilon\big/_{N-n_{field}}$ for the trees where no association was observed with nfield the number of associated botanical names and $\epsilon$ a background noise set to 0.01.
-The two information $\lambda^v$ and $\phi^v$ were combined in a Multinomial-Dirichlet scheme [@McCarthy2007] to return the final $[\alpha_v]$ distribution.
-To test the two different dataset we balanced them with a weighting parameter in the formula.
-Assuming a distribution of $[\phi_i]^v$ conditionally to $[\alpha_i]^v$ we had $[\alpha_i^v]$: $\Big[\alpha_i^v | _{(1-w)\lambda_i^v ,w.\phi_i^v}\Big] =Dirichlet\Big((1-w)\phi_i^v+w.\lambda_i^v\Big)$.
-When w was null, only the reference field inventory was considered, when it was 0.5 both dataset weighted equally and when w was 1 only the general taxa-association table was considered.
+\begin{equation}
+^qD = \sum_{i=1}^{N}{\left( p_i^q \right)^{\frac{1}{1-q}} }
+(\#eq:TsallisEntropy)
+\end{equation}
 
-## Simulation of the uncertainty gradient and determination of ptimal framework and reference protocol
+In the diversity formula, species relative abundance $p_i$ in a community of $N$ species is raised at the power $q$ that is the order of the diversity.
+The higher the order $q$, the higher the emphasis on common vs. rare species, so browsing a range of order $q$ corresponds assess a gradient balance between richness and evenness.
+The formula retrieves species richness for $q = 0$ , Shannon diversity for $q = 1$ where richness and evenness are equally accounted for and Simpson diversity, that can be undestood as the diversity of common species, for $q = 2$. 
+The Tsallis diversity indices would eventually be converted into equivalent number of species in our framework.
+The conversion in equivalent number of species, through Hill transformation, allows understandable analysis and comparisons among communities [@Hill1973;@Keylock2005;@Jost2006].
+
+## Diversity estimator
+
+The estimation framework is based on the distribution of the diversity of theoretical, fully determined communities. 
+For each incomplete inventory, 1 000 theoretical inventories are simulated through the replacement by a Monte-Carlo scheme of vernacular names by botanical ones.
+
+Theoretical inventories are simulated from the association probability between vernacular names and the $N$ botanical names inventoried.
+This association is modelled for each vernacular name by a multinomial distribution on the $s_N$ botanical species $M([s_1, s_2, …, s_N] ,[\alpha_1, \alpha_2,…, \alpha_N])$, where $[s_1, s_2, …, s_N]$ are the species recorded in the inventory and $[\alpha_1, \alpha_2,…, \alpha_N]$ their association probability with the vernacular name.
+
+The probabilities $[\alpha_v]$ were determined with a Bayesian framework based on the combination of botanical expertise and real,complete inventories.
+First, the estimation of $[\alpha_v]$ was based on prior information from experts’ knowledge in the form of a taxa-association table listing all botanical names likely corresponding to the vernacular name $v$.
+For a vernacular name $v$ a vector $[\lambda_v]$ giving the association probability  $\lambda_i={}^1/m_v$ for $v$ to be associated with the botanical name $i$.
+When no association between $v$ and $i$ was established, $\lambda_i={}^\epsilon\big/_{N-n_{table}}$, with $\epsilon$ standing for a background noise set to 0.01 here.
+Second, the estimation of $[\alpha_v]$ was based on reference field inventory giving the observed vernacular/botanical association frequency $\phi_i$ constituting the vector $[\phi_v]$.
+Similarly, a background noise $\epsilon=0.01$ was attributed to botanical names with no observed association with $v$, giving the association probability $\lambda_i={}^\epsilon\big/_{N-n_{field}}$.
+The two vectors $\lambda^v$ and $\phi^v$ were combined in a Multinomial-Dirichlet scheme [@McCarthy2007] to model the final $[\alpha_v]$ distribution.
+
+The relevance of the two parameters was tested in weighting their importance in the formula.
+With $w$ the wieghting parameter,assuming a distribution of $[\phi_i]^v$ conditionally to $[\alpha_i]^v$ we had \@ref(eq:weighting)
+
+\begin{equation}
+[\alpha_i^v]: 
+\Big[\alpha_i^v | _{(1-w)\lambda_i^v ,w.\phi_i^v}\Big] =Dirichlet\Big((1-w)\phi_i^v+w.\lambda_i^v\Big)
+(\#eq:weighting)
+\end{equation}
+
+When $w=0$ only the reference field inventory was considered, when $w=0.5$ both dataset weighted equally and when $w=1$ only the general taxa-association table was considered.
+
+## Simulation of the uncertainty gradient and determination of optimal framework and reference protocol
 
 To determine the impact of the determination ratio 
 $$\big(\cfrac{\text{number of vernacular name}}{\text{number of trees}}\big),$$
@@ -163,13 +190,13 @@ We therefore set the number of simulations at 60 in the final script (Figure \@r
 
 par(mfcol=c(3,3),mar=c(2,2,2,1),oma=c(1,2,1,1),no.readonly=TRUE)
   
-load("DB/UncertGrad_Expert")
+load("P:/Private/Taff/These/Redaction/1_TaxonomicUncertainties/DB/UncertGrad_Expert")
 Draw_Uncertainty(Ind_Gradients)
 
-load("DB/UncertGrad_ExpObs")
+load("P:/Private/Taff/These/Redaction/1_TaxonomicUncertainties/DB/UncertGrad_ExpObs")
 Draw_Uncertainty(Ind_Gradients)
 
-load("DB/UncertGrad_Observed")
+load("P:/Private/Taff/These/Redaction/1_TaxonomicUncertainties/DB/UncertGrad_Observed")
 Draw_Uncertainty(Ind_Gradients)
 
 mtext("(a) Only Expert Prior",at=0.12,line=-0.6,outer=TRUE)
@@ -192,7 +219,7 @@ The Shannon and Simpson estimators showed lower biases, the bias of Shannon esti
  
 ```{r Fig3, echo=FALSE, out.width='100%', fig.asp=1.3/3, fig.env="figure*", fig.cap="Degradation along a sampling effort gradient of the Richness, Shannon and Simpson diversities estimated for the reference inventory in vernacular names. The propagation method to estimate the diversities is only based on the reference field inventory. Above plots correspond to the estimated diversity in equivalent number of species and below plots correspond to the relative bias of the estimation compared to the value of the reference field inventory. For both dashed lines represent the value of the reference field inventory and crosses and red lines respectively represent the mean, 0.05 and 0.95 quantiles estimated after 1000 iterations."}
 
-load("DB/SampEffGrad")
+load("P:/Private/Taff/These/Redaction/1_TaxonomicUncertainties/DB/SampEffGrad")
 
 par(mfcol=c(2,3),oma=c(1,1,1,0),no.readonly=TRUE)
 
