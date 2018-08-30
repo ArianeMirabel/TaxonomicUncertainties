@@ -40,17 +40,17 @@ lang: english
 keywordlabel: Keywords
 corrauthorlabel: Corresponding author
 output:
+  bookdown::gitbook: default
   bookdown::pdf_book:
     base_format: EcoFoG::article
     keep_tex: TRUE
-  bookdown::gitbook: default
   bookdown::word_document2: default
 ---
 
 <!-- Options de knitr et de R (librairies, ...) --> 
 
 ```{r Options, echo=FALSE, message=FALSE}
-knitr::opts_chunk$set(cache=TRUE, warning=FALSE, tidy=TRUE, tidy.opts=list(blank=FALSE, width.cutoff=40))
+knitr::opts_chunk$set(cache=F, warning=FALSE, tidy=TRUE, tidy.opts=list(blank=FALSE, width.cutoff=40))
 # Installation des packages si nécessaire et chargement
 Library <- function(Packages) {
   InstallAndLoad <- function(Package) {
@@ -179,7 +179,7 @@ When only considering the observed inventory the estimator remained slightly bia
 
 A bootstrap of the 100 simulations for each specific case and diversity order showed a stabilization of variances after 60 simulations.
 
-```{r UncertGrad, echo=FALSE, out.width='100%', fig.env="figure*", fig.cap="Indices degradation along a taxonomic uncertainty gradient. 95\\% envelopes of the Richness, Shannon and Simpson indices calculated through our propagation method along an uncertainty gradient from 0 to 100\\% of undetermined species. In (a) Only expert prior is considered to compute the association frequencies, in (b) both expert and observation prior are equally accounted for in the propagation method and in (c) only the observation prior is considered."}
+```{r UncertGrad, echo=FALSE, out.width='100%', fig.env="figure*", fig.cap="Richness, Shannon and Simpson estimator bias and 95\\%confidence interval along an uncertainty gradient with the association frequencies computed from (a) only expert prior, (b) both expert and observation prior and (c) only observation prior."}
 
 par(mfcol=c(3,3),mar=c(2,2,2,1),oma=c(1,2,1,1),no.readonly=TRUE)
   
@@ -192,9 +192,9 @@ Draw_Uncertainty(Ind_Gradients)
 load("P:/Private/Taff/These/Redaction/1_TaxonomicUncertainties/DB/UncertGrad_Observed")
 Draw_Uncertainty(Ind_Gradients)
 
-mtext("(a) Only Expert Prior",at=0.12,line=-0.6,outer=TRUE, cex=0.9)
+mtext("(a) Expert Prior",at=0.12,line=-0.6,outer=TRUE, cex=0.9)
 mtext("(b) Expert prior & observation",at=0.5,line=-0.6,outer=TRUE, cex=0.9)
-mtext("(c) Only observation",at=0.8,line=-0.6,outer=TRUE, cex=0.9)
+mtext("(c) Observation",at=0.8,line=-0.6,outer=TRUE, cex=0.9)
 mtext("Richness",side=2,at=0.8,outer=T,line=0.8)
 mtext("Shannon",side=2,at=0.5,outer=T,line=0.8)
 mtext("Simpson",side=2,at=0.1,outer=T,line=0.8)
@@ -202,11 +202,11 @@ mtext("Simpson",side=2,at=0.1,outer=T,line=0.8)
  
 ## Calibrating the sampling effort
 
-Along the sampling effort gradient from 500 to 22 000 trees, the estimator of richness remained negatively biased but the confidence interval did not exceed 7%.
-The Shannon and Simpson were less biased, for 2 000 trees inventoried the Shannon diversity bias fell to 15% while the bias of Simpson estimator fell to 6% (Fig. \@ref(fig:SEgradient).
- 
-```{r SEgradient, echo=FALSE, out.width='100%', fig.asp=1.3/3, fig.env="figure*", fig.cap="Degradation along a sampling effort gradient of the Richness, Shannon and Simpson diversities estimated for the reference inventory in vernacular names. The propagation method to estimate the diversities is only based on the reference field inventory. Above plots correspond to the estimated diversity in equivalent number of species and below plots correspond to the relative bias of the estimation compared to the value of the reference field inventory. For both dashed lines represent the value of the reference field inventory and crosses and red lines respectively represent the mean, 0.05 and 0.95 quantiles estimated after 1000 iterations.", fig.env="figure*"}
+Along the sampling effort gradient from 500 to 22 000 trees, the richness estimator remained negatively biased but the confidence interval did not exceed 7%.
+The Shannon and Simpson were less biased, for 2 000 trees inventoried the Shannon diversity bias fell to 15% while the bias of Simpson estimator fell to 6% (Fig. \@ref(fig:SEgradient)).
 
+ 
+```{r SEgradient, echo=FALSE, out.width='100%', fig.asp=1.3/3, fig.cap="Richness, Shannon and Simpson estimation (upper panels) and bias compared to real diversity (lower panels) along a sampling effort gradient. Shaded areas are the 95\\% confidence intervals.", fig.env="figure*"}
 load("P:/Private/Taff/These/Redaction/1_TaxonomicUncertainties/DB/SampEffGrad")
 
 par(mfcol=c(2,3),oma=c(1,1,1,0),no.readonly=TRUE)
@@ -215,22 +215,25 @@ invisible(lapply(SEgradient,function(segradient){
   Draw_SamplingEffort(segradient)
 }))
   
-mtext("(a) Richness",at=0.12,line=-1,outer=TRUE)
-mtext("(b) Shannon",at=0.45,line=-1,outer=TRUE)
-mtext("(c) Simpson",at=0.8,line=-1,outer=TRUE)
-mtext("Number of sampled trees",1,adj=1,line=-0.5,cex=0.8,outer=TRUE)
-mtext("Estimation bias (%)",side=2,at=0.75,outer=T,line=-0.25, cex=0.8)
-mtext("Equivalent Diversity",side=2,at=0.3,outer=T,line=-0.25, cex=0.8)
+mtext("Equivalent Diversity",side=2,padj=1,line=0.8,cex=0.9,outer=TRUE)
+mtext("Sampling effort",side=1,adj=1,cex=0.9,outer=TRUE)
+mtext("(a) Richness",at=0.1,line=-1,outer=TRUE);mtext("(b) Shannon",at=0.44,line=-1,outer=TRUE)
+mtext("(c) Simpson",at=0.76,line=-1,outer=TRUE)
 ```
 
-```{r UncertGrad_SElim, echo=FALSE, out.width='100%', fig.env="figure*", fig.cap="Degradation along a taxonomic uncertainty gradient of diversity estimated from a reference field inventories of 2 000 trees. 95% envelopes of the Richness, Shannon and Simpson diversities calculated along an uncertainty gradient from 0 to 100% of undetermined species.", fig.env="figure*"}
+The precision and bias of the estimator were eventually tested for the recomended sampling effort of 2 000 trees.
+
+```{r UncertGradLim, echo=FALSE, fig.asp=1.3/3, fig.cap="Richness, Shannon and Simpson estimators along a taxonomic uncertainty gradient based on field inventories of 2 000 trees,  with shaded areas the 95\\% confidence interval.", fig.env="figure*"}
 load("P:/Private/Taff/These/Redaction/1_TaxonomicUncertainties/DB/UncertGrad_2000trees")
 
-par(mfcol=c(3,3),mar=c(2,2,2,1),oma=c(1,2,1,1),no.readonly=TRUE)
-Draw_Uncertainty(Optim_UncertGrad)
+par(mfrow=c(1,3),mar=c(2,2,2,1),oma=c(1,2,1,1),no.readonly=TRUE)
+Draw_Uncertainty(optim)
 
-
+mtext("Equivalent Diversity",side=2,padj=1,line=1.5,outer=TRUE)
+mtext("(a) Richness",at=0.1,line=-1,outer=TRUE);mtext("(b) Shannon",at=0.44,line=-1,outer=TRUE)
+mtext("(c) Simpson",at=0.76,line=-1,outer=TRUE)
 ```
+
 
 # Discussion
 

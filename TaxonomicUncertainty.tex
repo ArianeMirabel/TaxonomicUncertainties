@@ -139,11 +139,11 @@ Université de Guyane.\\ \hspace{1em} Campus Agronomique, 97310 Kourou, France.\
 
 \Abstract{
 Assess the fate of Neotropical forests requires to accurately measures
-are the base of reliable foret monitoring. The costs of botanical
-inventories and the taxonomic complexity of Neotropical forests make
-forest inventories in vernacular names the most efficient approach
-today, although these hold high botanical uncertainty and limit the
-accuracy of diversity measures. Several methods were proposed to
+forest diversity and reliably monitor forest communities. The costs of
+botanical inventories and the taxonomic complexity of Neotropical
+forests make forest inventories in vernacular names the most efficient
+approach today, although these hold high botanical uncertainty and limit
+the accuracy of diversity measures. Several methods were proposed to
 compensate these botanical uncertainties but none reliably assessed
 functional and fine-scale diversity surveys. We developed a polyvalent
 diversity estimator workable in numerous specific cases based on the
@@ -396,49 +396,52 @@ framework}\label{the-reponse-to-determination-effort-and-the-design-of-an-ideal-
 
 Along the indetermination gradient, when considering both general
 taxa-association table and observed inventory the diversity was
-increasingly overestimated (Fig. \ref{fig:Fig1}\emph{(a)}). This
+increasingly overestimated (Fig. \ref{fig:UncertGrad}). This
 overestimation increased with the order of diversity q, while it was not
 significant for the richness (\(q=0\)), the overestimation reached 45\%
 of the real diversity for Shannon diversity (\(q = 1\)) and it reached
 57\% of the real diversity for the Simpson diversity (\(q = 2\)).
 
-When only considering the general taxa-association table (Fig.
-\ref{fig:Fig1}\emph{(b)}) the richness (\(q=0\)) was underestimated
-(reaching a 50\% underestimation), while both Shannon and Simpson
-diversities were overestimated (respectively reaching underestimations
-of 67\% and 125\%).
+When only considering the general taxa-association table the richness
+(\(q=0\)) was underestimated (reaching a 50\% underestimation), while
+both Shannon and Simpson diversities were overestimated (respectively
+reaching underestimations of 67\% and 125\%).
 
-When only considering the observed inventory (Fig.
-\ref{fig:Fig1}\emph{(c)}) the estimator remained slightly biased but it
-did not exceed 15\% of the real diversity for any order of diversity.
+When only considering the observed inventory the estimator remained
+slightly biased but it did not exceed 15\% of the real diversity for any
+order of diversity.
 
 A bootstrap of the 100 simulations for each specific case and diversity
 order showed a stabilization of variances after 60 simulations.
 
 \begin{figure*}
-\includegraphics[width=1\linewidth]{TaxonomicUncertainty_files/figure-latex/Fig1-1} \caption{Indices degradation along a taxonomic uncertainty gradient. 95\% envelopes of the Richness, Shannon and Simpson indices calculated through our propagation method along an uncertainty gradient from 0 to 100\% of undetermined species. In (a) Only expert prior is considered to compute the association frequencies, in (b) both expert and observation prior are equally accounted for in the propagation method and in (c) only the observation prior is considered.}\label{fig:Fig1}
+\includegraphics[width=1\linewidth]{TaxonomicUncertainty_files/figure-latex/UncertGrad-1} \caption{Richness, Shannon and Simpson estimator bias and 95\%confidence interval along an uncertainty gradient with the association frequencies computed from (a) only expert prior, (b) both expert and observation prior and (c) only observation prior.}\label{fig:UncertGrad}
 \end{figure*}
-
-\begin{quote}
-r Fig2, out.width = `60\%', echo=FALSE,fig.cap=``Degradation along a
-taxonomic uncertainty gradient of diversity estimated from a reference
-field inventories of 2 000 trees. 95\% envelopes of the Richness,
-Shannon and Simpson diversities calculated along an uncertainty gradient
-from 0 to 100\% of undetermined species.''
-\end{quote}
 
 \subsection{Calibrating the sampling
 effort}\label{calibrating-the-sampling-effort}
 
 Along the sampling effort gradient from 500 to 22 000 trees, the
-richness estimation remained underestimated but the estimator confidence
+richness estimator remained negatively biased but the confidence
 interval did not exceed 7\%. The Shannon and Simpson were less biased,
 for 2 000 trees inventoried the Shannon diversity bias fell to 15\%
-while the bias of Simpson estimator fell to 6\% (Fig. \ref{fig:Fig3}.
+while the bias of Simpson estimator fell to 6\% (Fig.
+\ref{fig:SEgradient}).
 
 \begin{figure*}
-\includegraphics[width=1\linewidth]{TaxonomicUncertainty_files/figure-latex/Fig3-1} \caption{Degradation along a sampling effort gradient of the Richness, Shannon and Simpson diversities estimated for the reference inventory in vernacular names. The propagation method to estimate the diversities is only based on the reference field inventory. Above plots correspond to the estimated diversity in equivalent number of species and below plots correspond to the relative bias of the estimation compared to the value of the reference field inventory. For both dashed lines represent the value of the reference field inventory and crosses and red lines respectively represent the mean, 0.05 and 0.95 quantiles estimated after 1000 iterations.}\label{fig:Fig3}
+\includegraphics[width=1\linewidth]{TaxonomicUncertainty_files/figure-latex/SEgradient-1} \caption{Richness, Shannon and Simpson estimation (upper panels) and bias compared to real diversity (lower panels) along a sampling effort gradient. Shaded areas are the 95\% confidence intervals.}\label{fig:SEgradient}
 \end{figure*}
+
+The precision and bias of the estimator were eventually tested for the
+recomended sampling effort of 2 000 trees.
+
+\begin{figure}
+\centering
+\includegraphics{TaxonomicUncertainty_files/figure-latex/UncertGradLim-1.pdf}
+\caption{\label{fig:UncertGradLim}Richness, Shannon and Simpson estimators
+along a taxonomic uncertainty gradient based on field inventories of 2
+000 trees, with shaded areas the 95\% confidence interval.}
+\end{figure}
 
 \section{Discussion}\label{discussion}
 

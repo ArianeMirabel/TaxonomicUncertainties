@@ -75,15 +75,15 @@ div.abstract{
 <li class="chapter" data-level="2.1" data-path="methods.html"><a href="methods.html#study-community"><i class="fa fa-check"></i><b>2.1</b> Study community</a></li>
 <li class="chapter" data-level="2.2" data-path="methods.html"><a href="methods.html#diversity-measures"><i class="fa fa-check"></i><b>2.2</b> Diversity measures</a></li>
 <li class="chapter" data-level="2.3" data-path="methods.html"><a href="methods.html#diversity-estimator"><i class="fa fa-check"></i><b>2.3</b> Diversity estimator</a></li>
-<li class="chapter" data-level="2.4" data-path="methods.html"><a href="methods.html#simulation-of-the-uncertainty-gradient-and-determination-of-optimal-framework-and-reference-protocol"><i class="fa fa-check"></i><b>2.4</b> Simulation of the uncertainty gradient and determination of optimal framework and reference protocol</a></li>
+<li class="chapter" data-level="2.4" data-path="methods.html"><a href="methods.html#simulation-of-determination-and-sampling-effort-gradients"><i class="fa fa-check"></i><b>2.4</b> Simulation of determination and sampling effort gradients</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>3</b> Results</a><ul>
-<li class="chapter" data-level="3.1" data-path="results.html"><a href="results.html#impacts-of-undetermination-ratios-and-ideal-settings"><i class="fa fa-check"></i><b>3.1</b> Impacts of undetermination ratios and ideal settings</a></li>
+<li class="chapter" data-level="3.1" data-path="results.html"><a href="results.html#the-reponse-to-determination-effort-and-the-design-of-an-ideal-framework"><i class="fa fa-check"></i><b>3.1</b> The reponse to determination effort, and the design of an ideal framework</a></li>
 <li class="chapter" data-level="3.2" data-path="results.html"><a href="results.html#calibrating-the-sampling-effort"><i class="fa fa-check"></i><b>3.2</b> Calibrating the sampling effort</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="discussion.html"><a href="discussion.html"><i class="fa fa-check"></i><b>4</b> Discussion</a><ul>
-<li class="chapter" data-level="4.1" data-path="discussion.html"><a href="discussion.html#prior-field-inventories-for-reliable-diversity-estimations"><i class="fa fa-check"></i><b>4.1</b> Prior field inventories for reliable diversity estimations</a></li>
-<li class="chapter" data-level="4.2" data-path="discussion.html"><a href="discussion.html#calibration-of-the-reference-inventory"><i class="fa fa-check"></i><b>4.2</b> Calibration of the reference inventory</a></li>
+<li class="chapter" data-level="4.1" data-path="discussion.html"><a href="discussion.html#inescapable-taxonomists"><i class="fa fa-check"></i><b>4.1</b> Inescapable taxonomists</a></li>
+<li class="chapter" data-level="4.2" data-path="discussion.html"><a href="discussion.html#calibration-of-an-optimized-inventory-protocol"><i class="fa fa-check"></i><b>4.2</b> Calibration of an optimized inventory protocol</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -106,27 +106,33 @@ div.abstract{
             <section class="normal" id="section-">
 <div id="results" class="section level1">
 <h1><span class="header-section-number">3</span> Results</h1>
-<div id="impacts-of-undetermination-ratios-and-ideal-settings" class="section level2">
-<h2><span class="header-section-number">3.1</span> Impacts of undetermination ratios and ideal settings</h2>
-<p>When considering both general taxa-correspondence table and reference field inventory diversity estimator showed a positively bias that increased with the indetermination ratio (Figure <a href="results.html#fig:Fig1">3.1</a><em>(a)</em>). The bias of the estimator was besides increasing with the order of diversity q. For the order <span class="math inline">\(q = 0\)</span> the estimation did not significantly differ from the initial value of the real inventory while for the order <span class="math inline">\(q = 1\)</span> the overestimation reached 45% of the initial diversity and for the order <span class="math inline">\(q = 2\)</span> the overestimation reached 57%. When only the general taxa-correspondence table is considered (Figure <a href="results.html#fig:Fig1">3.1</a><em>(b)</em>) the richness was highly underestimated, it reached 50% when the whole inventory was in vernacular names, while the Shannon and Simpson indices were both significantly overestimated, their respective bias reaching 67% and 125%. When only the reference field inventory is considered (Figure <a href="results.html#fig:Fig1">3.1</a><em>(c)</em>) there were still estimation biases but they did not exceed 15% for any order of diversity.</p>
-<p>We performed a bootstrap of the 100 simulations that showed a stabilization of variances after 60 simulations. We therefore set the number of simulations at 60 in the final script (Figure <a href="#fig:FigS1"><strong>??</strong></a>).</p>
-<div class="figure"><span id="fig:Fig1"></span>
-<img src="TaxonomicUncertainty_files/figure-html/Fig1-1.png" alt="Indices degradation along a taxonomic uncertainty gradient. 95\% envelopes of the Richness, Shannon and Simpson indices calculated through our propagation method along an uncertainty gradient from 0 to 100\% of undetermined species. In (a) Only expert prior is considered to compute the association frequencies, in (b) both expert and observation prior are equally accounted for in the propagation method and in (c) only the observation prior is considered." width="100%" />
+<div id="the-reponse-to-determination-effort-and-the-design-of-an-ideal-framework" class="section level2">
+<h2><span class="header-section-number">3.1</span> The reponse to determination effort, and the design of an ideal framework</h2>
+<p>Along the indetermination gradient, when considering both general taxa-association table and observed inventory the diversity was increasingly overestimated (Fig. <a href="results.html#fig:UncertGrad">3.1</a>). This overestimation increased with the order of diversity q, while it was not significant for the richness (<span class="math inline">\(q=0\)</span>), the overestimation reached 45% of the real diversity for Shannon diversity (<span class="math inline">\(q = 1\)</span>) and it reached 57% of the real diversity for the Simpson diversity (<span class="math inline">\(q = 2\)</span>).</p>
+<p>When only considering the general taxa-association table the richness (<span class="math inline">\(q=0\)</span>) was underestimated (reaching a 50% underestimation), while both Shannon and Simpson diversities were overestimated (respectively reaching underestimations of 67% and 125%).</p>
+<p>When only considering the observed inventory the estimator remained slightly biased but it did not exceed 15% of the real diversity for any order of diversity.</p>
+<p>A bootstrap of the 100 simulations for each specific case and diversity order showed a stabilization of variances after 60 simulations.</p>
+<div class="figure"><span id="fig:UncertGrad"></span>
+<img src="TaxonomicUncertainty_files/figure-html/UncertGrad-1.png" alt="Richness, Shannon and Simpson estimator bias and 95\%confidence interval along an uncertainty gradient with the association frequencies computed from (a) only expert prior, (b) both expert and observation prior and (c) only observation prior." width="100%" />
 <p class="caption">
-Figure 3.1: Indices degradation along a taxonomic uncertainty gradient. 95% envelopes of the Richness, Shannon and Simpson indices calculated through our propagation method along an uncertainty gradient from 0 to 100% of undetermined species. In (a) Only expert prior is considered to compute the association frequencies, in (b) both expert and observation prior are equally accounted for in the propagation method and in (c) only the observation prior is considered.
+Figure 3.1: Richness, Shannon and Simpson estimator bias and 95%confidence interval along an uncertainty gradient with the association frequencies computed from (a) only expert prior, (b) both expert and observation prior and (c) only observation prior.
 </p>
 </div>
-<blockquote>
-<p>r Fig2, out.width = ‘60%’, echo=FALSE,fig.cap=“Degradation along a taxonomic uncertainty gradient of diversity estimated from a reference field inventories of 2 000 trees. 95% envelopes of the Richness, Shannon and Simpson diversities calculated along an uncertainty gradient from 0 to 100% of undetermined species.”</p>
-</blockquote>
 </div>
 <div id="calibrating-the-sampling-effort" class="section level2">
 <h2><span class="header-section-number">3.2</span> Calibrating the sampling effort</h2>
-<p>We simulated a gradient of sampling effort for the reference field inventory, in terms of number of trees required to infer a the vector of association frequencies <span class="math inline">\([\phi_v]\)</span>, to identify the minimum effort for reliable diversity estimators. We tested a range of sampling effort from 500 to 22 000 trees randomly selected from the whole inventory (Figure <a href="results.html#fig:Fig3">3.2</a>). The biases of the estimators decreased with the order of diversity. The richness of reference is not faithfully retrieved before recovering the whole inventory (Figure <a href="results.html#fig:Fig3">3.2</a><em>(a)</em>) but the 95% confidence interval of the estimator does not exceed 7% of the initial diversity. The Shannon and Simpson estimators showed lower biases, the bias of Shannon estimator falls to 15% for 2 000 reference trees (Figure <a href="results.html#fig:Fig3">3.2</a><em>(b)</em>) and the bias of Simpson estimator falls to 6% (Figure <a href="results.html#fig:Fig3">3.2</a><em>(c)</em>).</p>
-<div class="figure"><span id="fig:Fig3"></span>
-<img src="TaxonomicUncertainty_files/figure-html/Fig3-1.png" alt="Degradation along a sampling effort gradient of the Richness, Shannon and Simpson diversities estimated for the reference inventory in vernacular names. The propagation method to estimate the diversities is only based on the reference field inventory. Above plots correspond to the estimated diversity in equivalent number of species and below plots correspond to the relative bias of the estimation compared to the value of the reference field inventory. For both dashed lines represent the value of the reference field inventory and crosses and red lines respectively represent the mean, 0.05 and 0.95 quantiles estimated after 1000 iterations." width="100%" />
+<p>Along the sampling effort gradient from 500 to 22 000 trees, the richness estimator remained negatively biased but the confidence interval did not exceed 7%. The Shannon and Simpson were less biased, for 2 000 trees inventoried the Shannon diversity bias fell to 15% while the bias of Simpson estimator fell to 6% (Fig. <a href="results.html#fig:SEgradient">3.2</a>).</p>
+<div class="figure"><span id="fig:SEgradient"></span>
+<img src="TaxonomicUncertainty_files/figure-html/SEgradient-1.png" alt="Richness, Shannon and Simpson estimation (upper panels) and bias compared to real diversity (lower panels) along a sampling effort gradient. Shaded areas are the 95\% confidence intervals." width="100%" />
 <p class="caption">
-Figure 3.2: Degradation along a sampling effort gradient of the Richness, Shannon and Simpson diversities estimated for the reference inventory in vernacular names. The propagation method to estimate the diversities is only based on the reference field inventory. Above plots correspond to the estimated diversity in equivalent number of species and below plots correspond to the relative bias of the estimation compared to the value of the reference field inventory. For both dashed lines represent the value of the reference field inventory and crosses and red lines respectively represent the mean, 0.05 and 0.95 quantiles estimated after 1000 iterations.
+Figure 3.2: Richness, Shannon and Simpson estimation (upper panels) and bias compared to real diversity (lower panels) along a sampling effort gradient. Shaded areas are the 95% confidence intervals.
+</p>
+</div>
+<p>The precision and bias of the estimator were eventually tested for the recomended sampling effort of 2 000 trees.</p>
+<div class="figure"><span id="fig:UncertGradLim"></span>
+<img src="TaxonomicUncertainty_files/figure-html/UncertGradLim-1.png" alt="Richness, Shannon and Simpson estimators along a taxonomic uncertainty gradient based on field inventories of 2 000 trees,  with shaded areas the 95\% confidence interval." width="672" />
+<p class="caption">
+Figure 3.3: Richness, Shannon and Simpson estimators along a taxonomic uncertainty gradient based on field inventories of 2 000 trees, with shaded areas the 95% confidence interval.
 </p>
 </div>
 </div>
