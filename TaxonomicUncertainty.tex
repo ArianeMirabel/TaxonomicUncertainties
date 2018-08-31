@@ -122,7 +122,7 @@
 Minimum Field Work} % Article title
 
 \Authors{
-Ariane Mirabel\textsuperscript{1*}\\ Eric Marcon\textsuperscript{1}\\ Bruno Hérault\textsuperscript{2}
+Ariane Mirabel\textsuperscript{1*}\\ Bruno Hérault\textsuperscript{2}\\ Eric Marcon\textsuperscript{1}
 } % Authors
 \affiliation{
 \textsuperscript{1}UMR EcoFoG, AgroParistech, CNRS, Cirad, INRA, Université des Antilles,
@@ -193,7 +193,7 @@ in space and time and their determinants
 Correctly measure, map and manage forests biodiversity require accurate
 and large forest monitoring. The precision of forest inventories,
 though, is often limited by their significant cost in terms of time,
-money, and logistic \citep{Feeley2011, Valencia2013}. Sampling methods
+money, and logistic \citep{Feeley2011, Baraloto2013}. Sampling methods
 were optimized to minimize these costs and maximize inventory
 accuracy.Some approaches would restrict inventories to some DBH or
 height classes, to specific taxa, or would opt for inventories at family
@@ -204,7 +204,7 @@ these methods were either limited to small areas (under 1ha), sometimes
 remained biased or holding significant uncertainty, and usually proved
 limited to detect subtle diversity aspects and to desentangle richness
 from equitability parameters
-\citetext{\citealp{Phillips2003a}; \citealp{Valencia2013}; \citealp[
+\citetext{\citealp{Phillips2003a}; \citealp{Baraloto2013}; \citealp[
 ]{Guitet2014b}; \citealp{Vellend2008}; \citealp{Prance1994}}. Another
 approach proposed to use inventories in vernacular names instead of
 botanical species. Vernacular names indeed are easier to attribute, more
@@ -365,28 +365,27 @@ general taxa-association table was considered.
 \subsection{Simulation of determination and sampling effort
 gradients}\label{simulation-of-determination-and-sampling-effort-gradients}
 
-The simulation of a determination effort gradient, \emph{i.e.} an
-increasing proportion of vernacular names among all identifications,
-allowed to (i) examine the diversity estimator response to the
-determination effort and (ii) determine the best input balance \(w\)
-between general table and observed inventories for the estimator. The
-indetermination gradient was simulated by ignoring an increasing number
-of botanical identifications in the reference inventory. As rare species
-had more chance to be undetermined (Kendall test,
+The estimator was calibrated in comparing several methods for the
+vernacular/botanical association probability (corresponding to different
+values of \(w\), the balance between general table and observed
+inventories). The performance of the estimator was examined regarding
+its bias, \emph{i.e.} the difference between the estimation and the real
+diversity, and its variability, \emph{i.e.} 95\% confidence interval
+\citep{Baltanas2009}. For each computation method the performance of the
+estimator was examined along a determination gradient (corresponding to
+an increasing number of species only identified in vernacular name). As
+rare species had more chance to be undetermined (Kendall test,
 \(\tau = -0.46, p < 10^-16\)), the trial of ignored determination
 followed botanical names abundance (\(p_{undetermined}=f_i^{-0.1}\),
 with \(f_i\) botanical name frequency).
 
-The simulation of a sampling effort gradient, \emph{i.e.} an increasing
-number of trees inventoried to compute the observed association
-probability, assessed the response of the diversity estimator to
-sampling effort. The simulated gradient ranged from 500 to 22 000 trees
-randomly selected in the reference inventory.
-
-Along both indetermination and sampling effort gradient we examine the
-estimator bias, \emph{i.e.} the difference between the estimation and
-the real diversity \citep{Baltanas2009}, the estimator variability,
-\emph{i.e.} 95\% confidence interval.
+Different inventory specific cases were then tested in examining the
+bias and variability of the estimator along a sampling effort gradient
+(corresponding to an increasing number of trees, from 500 to 22 000
+trees, used to compute the vernacular/botanical association
+probability). Along the sampling effort gradient the estimations were
+performed on the fully undetermined inventory, \emph{i.e.} without any
+botanical identification.
 
 \section{Results}\label{results}
 
@@ -424,22 +423,24 @@ effort}\label{calibrating-the-sampling-effort}
 Along the sampling effort gradient from 500 to 22 000 trees, the
 richness estimator remained negatively biased but the confidence
 interval did not exceed 7\%. The Shannon and Simpson were less biased,
-for 2 000 trees inventoried the Shannon diversity bias fell to 15\%
+for 3 000 trees inventoried the Shannon diversity bias fell to 15\%
 while the bias of Simpson estimator fell to 6\% (Fig.
 \ref{fig:SEgradient}).
 
 \begin{figure*}
-\includegraphics[width=1\linewidth]{TaxonomicUncertainty_files/figure-latex/SEgradient-1} \caption{Richness, Shannon and Simpson estimation (upper panels) and bias compared to real diversity (lower panels) along a sampling effort gradient. Shaded areas are the 95\% confidence intervals.}\label{fig:SEgradient}
+\includegraphics[width=1\linewidth]{TaxonomicUncertainty_files/figure-latex/SEgradient-1} \caption{Richness, Shannon and Simpson estimation (upper panels) and bias compared to real diversity (lower panels) along a sampling effort gradient. Shaded areas are the 95\% confidence intervals, vertical plain line stands for the points at 3 000 trees.}\label{fig:SEgradient}
 \end{figure*}
 
 The precision and bias of the estimator were eventually tested for the
-recomended sampling effort of 2 000 trees.
+recomended sampling effort of 3 000 trees. In this case the Shannon and
+Simpson biases remained lower than 10\% and the Richness bias was below
+10\% until 20\% of undetermined species.
 
 \begin{figure}
 \centering
 \includegraphics{TaxonomicUncertainty_files/figure-latex/UncertGradLim-1.pdf}
 \caption{\label{fig:UncertGradLim}Richness, Shannon and Simpson estimators
-along a taxonomic uncertainty gradient based on field inventories of 2
+along a taxonomic uncertainty gradient based on field inventories of 3
 000 trees, with shaded areas the 95\% confidence interval.}
 \end{figure}
 
@@ -449,54 +450,54 @@ along a taxonomic uncertainty gradient based on field inventories of 2
 
 The method developed in the line of \citet{Guitet2014b} to propagate the
 taxonomic uncertainty of vernacular names in diversity mesures provided
-a reliable estimator for diversity indices of different order. The use
-the general taxonomic-association table proved to systematically
-overestimate the diversity. Indeed in the general table
-vernacular/botanical association probability were independent of
-botanical names abundance, so rare vernacular were indifferently
-replaced by rare or abundant botanical names. Randomly along the
-simulations the abundance of rare species were inflated at the expense
-abundant ones.
-
-In contrast the use of observed inventories proved more reliable as it
-accounted for botanical names abundance. The rescourse to taxonomists
-and pre-inventories proved unavoidable to correctly estimate and
-therefore manage forest biodiversity.
+a reliable estimator for diversity indices, workable for all diversity
+order and adaptable for functoinal diversity. The use the general
+taxonomic-association table proved to systematically overestimate the
+diversity. In these tables the vernacular/botanical association
+probabilities were independent of botanical name abundances, so rare
+vernacular names were indifferently replaced by rare or abundant
+botanical names. As a result, the abundance of rare species were
+inflated at the expense abundant ones, which overestimated the
+equitability. Contrastingly the use of observed inventories that account
+for the abundance of botanical names proved more reliable. The rescourse
+to taxonomists and pre-inventories proved unavoidable to correctly
+estimate and therefore manage forest biodiversity.
 
 \subsection{Calibration of an optimized inventory
 protocol}\label{calibration-of-an-optimized-inventory-protocol}
 
-The response of the diversity estimator bias and variability allowed
-determining the inventory protocol minimizing the determination ratio
-and sampling effort while maximizing the estimator bias and variability.
-The real richness proved difficult to assess whatever the sampling and
-determination effort, as already suggested in previous analysis
-comparing several inventory methods \citep{Higgins2004}. Still, although
-the richness estimation remained biased the variation remained low and
-allowed preserving communities ranking of with similar indetermination
-ratio \citep{Vellend2008}.
+The performance of the estimator, regarding its bias and variability,
+along the determination and sampling efforts gradients highlighted the
+difficulty to assess communities richness. Whatever the inventory
+protocol the richness indeed remained significantly biased, as already
+suggested in previous analysis comparing several inventory methods
+\citep{Higgins2004}.
 
 Conversely, the Shannon and Simpson diversity estimations proved less
-biased, and this key given their power to detect small time and spatial
-scale diversity variations
-\citep{Baraloto2012a, Berry2008a, Cannon1998, Plumptre1996}. From 2 000
-pre-inventoried trees the Shannon and Simpson estimators respectively
-displayed 12\% and 1\% uncertainty.
+biased, thus allowing the estimator to detect small variation of
+community equitability. This would be a key to value existing
+inventories and ease future protocols as subtle time and spatial
+diversity variations often invlove changes in community abundance
+distribution rather than richness
+\citep{Baraloto2012a, Berry2008a, Cannon1998, Plumptre1996}.
+
+An optimized protocol maximizing the estimator performance on the one
+hand and minimizing the determination and sampling efforts on the other
+hand corresponding to the pre-inventory of at least 3 000 trees and the
+determination of 80\% of the botanical species.
 
 \section{Conclusion}\label{conclusion}
 
-In this paper we developed a diversity estimator developed in this paper
-propagating vernacular names' taxonomic uncertainty to the measure
-tropical forest diversity. It proved reliable to estimate forest
-diversity for all diversity order and highlighted the inescapable
-rescourse to taxonomists and minimum real inventories. The response of
-the estimator bias and variability along a sampling effort gradient
-allowed optimizing an ideal inventory protocol. With an initial
-reference botanical inventory of 2 000 trees Shannon and Simpson
-diversities were estimated within 10\% and 1\% confidence intervals. The
-diversity estimator allows integrating the specificity of the working
-team and local forest structure and is thus adaptable to all specific
-case.
+The diversity estimator developed in this paper (i) proved relevant to
+measure tropical forest diversity at small time and spatial scale, (ii)
+allowed to integrate the specificities of local forests and working
+team, and (iii) was adaptable for both taxonomic and functional
+diversity at all order. Examining the estimator performance highlighted
+the inescapable rescourse to taxonomists and to minimum real
+inventories: an initial inventory of 3 000 trees with 80\% of the
+species identified allowed an estimation accurate at 10\% of Shannon and
+Simpson diversities. The diversity estimator allows integrating and is
+thus adaptable to all specific case.
 
 %----------------------------------------------------------------------------------------
 %	REFERENCE LIST
